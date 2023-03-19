@@ -1,5 +1,5 @@
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
-import { PaginationItem } from "./PaginationItem";
+import { PaginationItem } from "./components/PaginationItem";
 
 interface PaginationProps {
   totalCountOfRegisters: number;
@@ -34,9 +34,9 @@ export function Pagitation({
   const nextPages =
     currentPage < lastPage
       ? generatePagesArray(
-          currentPage,
-          Math.min(currentPage + siblingsCount, lastPage)
-        )
+        currentPage,
+        Math.min(currentPage + siblingsCount, lastPage)
+      )
       : [];
 
   return (

@@ -2,10 +2,10 @@ import { Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react";
 import { RiMenuLine } from "react-icons/ri";
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
 
-import { Logo } from "./Logo";
-import { NotificationsNav } from "./NotificationsNav";
-import { Profile } from "./Profile";
-import { SearchBox } from "./SearchBox";
+import { Logo } from "./components/Logo";
+import { NotificationsNav } from "./components/NotificationsNav";
+import { Profile } from "./components/Profile";
+import { SearchBox } from "./components/SearchBox";
 
 export function Header() {
   const { onOpen } = useSidebarDrawer();

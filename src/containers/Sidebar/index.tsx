@@ -11,7 +11,7 @@ import {
 
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
 
-import { SidebarNav } from "./SidebarNav";
+import { SidebarNav } from "./components/SidebarNav";
 
 export function Sidebar() {
   const { isOpen, onClose } = useSidebarDrawer();

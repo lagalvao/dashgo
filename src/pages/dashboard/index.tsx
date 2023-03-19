@@ -5,8 +5,8 @@ const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar";
+import { Header } from "../../containers/Header";
+import { Sidebar } from "../../containers/Sidebar";
 
 const options = {
   chart: {

@@ -30,11 +30,6 @@ import { queryClient } from "../../services/queryClient";
 export default function UserList({ users }) {
   const [page, setPage] = useState(1);
 
-  // refetch -> método que atualiza a lista
-  //SSR
-  // const { data, isLoading, isFetching, error } = useUsers(page, {
-  //   initialData: users,
-  // });
   const { data, isLoading, isFetching, error } = useUsers(page);
 
   const isWideVersion = useBreakpointValue({
@@ -42,7 +37,7 @@ export default function UserList({ users }) {
     lg: true,
   });
 
-  async function handlePrefectUser(userId: string) {
+  async function handlePrefectClient(userId: string) {
     await queryClient.prefetchQuery(
       ["user", userId],
       async () => {
@@ -66,13 +61,13 @@ export default function UserList({ users }) {
         <Box flex="1" borderRadius={8} bg="gray.800" p="8">
           <Flex mb="8" justify="space-between" align="center">
             <Heading size="lg" fontWeight="normal">
-              Usuários
+              Clientes
               {!isLoading && isFetching && (
                 <Spinner size="sm" color="gray.500" ml="4" />
               )}
             </Heading>
 
-            <NextLink href="/users/create" passHref>
+            <NextLink href="/customers/create" passHref>
               <Button
                 as="a"
                 size="sm"
@@ -91,7 +86,7 @@ export default function UserList({ users }) {
             </Flex>
           ) : error ? (
             <Flex justify="center">
-              <Text>Falha ao obter dados do usuário</Text>
+              <Text>Falha ao obter dados do cliente</Text>
             </Flex>
           ) : (
             <>
@@ -119,7 +114,7 @@ export default function UserList({ users }) {
                         <Box>
                           <Link
                             color="purple.400"
-                            onMouseEnter={() => handlePrefectUser(user.id)}
+                            onMouseEnter={() => handlePrefectClient(user.id)}
                           >
                             <Text fontWeight="bold">{user.name}</Text>
                           </Link>
@@ -159,13 +154,3 @@ export default function UserList({ users }) {
     </Box>
   );
 }
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const { users, totalCount } = await getUsers(1);
-
-//   return {
-//     props: {
-//       users,
-//     },
-//   };
-// };
